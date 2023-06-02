@@ -1,6 +1,6 @@
 <?php
-  include "./dependancies/headers.php";
-  include "./dependancies/signature.php";
+  include "dependancies/headers.php";
+  include "dependancies/signature.php";
 
   function register($data, $fileRoot) {
     $name = clean($_REQUEST["username"]);

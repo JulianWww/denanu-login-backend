@@ -1,5 +1,5 @@
 <?php
-  include "./dependancies/headers.php";
+  include "dependancies/headers.php";
 
   function signin($data, $fileRoot) {
     $name = clean($_REQUEST["username"]);
