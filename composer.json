@@ -1,6 +1,6 @@
 {
   "name": "denanu/login",
-  "description": "Login System backend for denanu-login",
+  "description": "Login System backend for denanu-login.",
   "type": "library",
   "require": {
     "php": ">=7.0"
