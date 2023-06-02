@@ -3,7 +3,7 @@
   include "dependancies/signature.php";
   include "dependancies/mail.php";
 
-  function signup($data, $fileRoot, $backend_url, $pswrd) {
+  function signup($data, $fileRoot, $backend_url, $pswrd, $sender) {
     $name = clean($_REQUEST["username"]);
     $userfile = $fileRoot . '/' . $name . '.json';
     
@@ -23,7 +23,7 @@
 
     $content = "Please confirm your E-mail by clicking the following link:\n" . $registerUrl;
 
-    send_mail('Confirm Email', $name, $content, $pswrd);
+    send_mail('Confirm Email', $name, $content, $pswrd, $sender);
 
     print("{\"status\": \"success\"}");
   };
