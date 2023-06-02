@@ -28,5 +28,5 @@
     print("{\"status\": \"success\"}");
   };
 
-  signup($_REQUEST, "./data", "http://localhost:3000/register");
+  # signup($_REQUEST, "./data", "http://localhost:3000/register");
 ?>

@@ -36,5 +36,5 @@
     print("{\"status\": \"success\", \"data\": {\"token\": \"" . $token . "\", \"username\": \"" . $_REQUEST["username"] . "\"}}");
   };
 
-  register($_REQUEST, "./data");
+  # register($_REQUEST, "./data");
 ?>
