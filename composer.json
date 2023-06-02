@@ -1,0 +1,23 @@
+{
+  "name": "denanu/login",
+  "description": "Login System backend for denanu-login",
+  "type": "library",
+  "require": {
+    "php": ">=7.0"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Julian Wandhoven",
+      "email": "julian.wandhoven@gmail.com"
+    }
+  ],
+  "archive": {
+    "exclude": [
+      "*",
+      ".*",
+      "!/src/*"
+    ]
+  },
+  "minimum-stability": "dev"
+}

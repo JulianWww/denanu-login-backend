@@ -1,0 +1,11 @@
+name: Development Build
+
+on: [push]
+
+jobs:
+  composer-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update composer
+        run: |
+          curl -XPOST -H'content-type:application/json' 'https://packagist.org/api/update-package?username=denanu&apiToken=${{ secrets.COMPOSER_API }}' -d'{"repository":{"url":"https://github.com/JulianWww/denanu-login/"}}'
