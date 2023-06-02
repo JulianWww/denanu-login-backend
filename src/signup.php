@@ -1,8 +1,9 @@
 <?php
   include "dependancies/headers.php";
   include "dependancies/signature.php";
+  include "dependancies/mail.php";
 
-  function signup($data, $fileRoot, $backend_url) {
+  function signup($data, $fileRoot, $backend_url, $pswrd) {
     $name = clean($_REQUEST["username"]);
     $userfile = $fileRoot . '/' . $name . '.json';
     
@@ -22,8 +23,7 @@
 
     $content = "Please confirm your E-mail by clicking the following link:\n" . $registerUrl;
 
-    $mailCommand = "./dependancies/mail.sh 'Confirm Email' '" . $name . "' '" . $content . "'";
-    shell_exec($mailCommand);
+    send_mail('Confirm Email', $name, $content, $pswrd);
 
     print("{\"status\": \"success\"}");
   };
