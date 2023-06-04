@@ -1,7 +1,7 @@
 <?php
-  include "dependancies/headers.php";
-  include "dependancies/signature.php";
-  include "dependancies/mail.php";
+  include_once "dependancies/headers.php";
+  include_once "dependancies/signature.php";
+  include_once "dependancies/mail.php";
 
   function signup($data, $fileRoot, $backend_url, $senderName, $senderMail, $apiKey, $serviceName, $serviceUrl, $unsubscribeUrl) {
     $name = clean($_REQUEST["username"]);

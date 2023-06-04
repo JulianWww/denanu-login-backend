@@ -3,7 +3,7 @@
   header('Access-Control-Allow-Methods: GET, POST');
   header("Access-Control-Allow-Headers: X-Requested-With");
 
-  include "checkCredentials.php";
+  include_once "checkCredentials.php";
 
   function toBoolean($str) {
     return $str == "true";
