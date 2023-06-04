@@ -3,7 +3,8 @@
   "description": "Login System backend for denanu-login.",
   "type": "library",
   "require": {
-    "php": ">=7.0"
+    "php": ">=7.0",
+    "sendgrid/sendgrid": "dev-main"
   },
   "license": "MIT",
   "authors": [

@@ -3,7 +3,7 @@
   include "dependancies/signature.php";
   include "dependancies/mail.php";
 
-  function signup($data, $fileRoot, $backend_url, $pswrd, $sender) {
+  function signup($data, $fileRoot, $backend_url, $senderName, $senderMail, $apiKey, $serviceName, $serviceUrl, $unsubscribeUrl) {
     $name = clean($_REQUEST["username"]);
     $userfile = $fileRoot . '/' . $name . '.json';
     
@@ -21,12 +21,11 @@
     $sign = sign($data, $fileRoot);
     $registerUrl = $backend_url . "?username=" . $name . "&mail=" . $mail . "&password=" . $pswrd . "&sendmail=" . $sendMail . "&remember=" . $remember . "&signature=" . $sign;
 
-    $content = "Please confirm your E-mail by clicking the following link:\n" . $registerUrl;
-
-    send_mail('Confirm Email', $name, $content, $pswrd, $sender);
+    
+    sendMail($name, $mail, $senderName, $senderMail, $apiKey,
+      genMailAutentication($serviceName, $serviceUrl, $registerUrl, $unsubscribeUrl)
+    );
 
     print("{\"status\": \"success\"}");
   };
-
-  # signup($_REQUEST, "./data", "http://localhost:3000/register");
 ?>

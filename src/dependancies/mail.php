@@ -1,29 +1,22 @@
 <?php
-  function send_mail($title, $sendername, $content, $pswrd, $sender) {
-    ## $mailer = substr(__FILE__, 0, -3);
-    ## $mailCommand = $mailer . "sh 'Confirm Email' '" . $sendername . "' '" . $content . "'";
-    ## shell_exec($mailCommand);
-    ## $absolute_path = realpath("mail.php");
-    ## print($mailCommand);
-    ## print("<br/><br/>");
+    require_once __DIR__ . '/../../vendor/autoload.php';
+    require_once __DIR__ . "/templates/email_verification.php";
 
-    $rcpt='julian.wandhoven@gmail.com';
+    use SendGrid\Mail\Mail;
 
-    $email_content = "From: '" . $title . "' <'" . $sender . "'>\n"
-    . "To: 'Gmail' <'" . $rcpt . "'>\n"
-    . "Subject: from '" .$sender . "' to Gmail\n"
-    . "\n"
-    . "Dear '" . $sendername . "'"
-    . "\n"
-    . $content
-    . "\n"
-    . "Regards,\n"
-    . "Denanu-Login";
-  
-    $command = 'echo "' . $email_content . '" | curl -s --ssl-reqd --url "smtps://smtp.gmail.com:465" --sender "' . $sender . ':"' . $pswrd . '"" --mail-from "' . $sender . '" --mail-rcpt "' . $rcpt . '" --upload-file -';
-
-    print($command);
-    print("<br/><br/>");
-  }
+    function sendMail($to_name, $to_mail, $from_name, $from_mail, $key, $content) {
+        $email = new Mail();
+        $email->setFrom($from_mail, $from_name);
+        $email->setSubject("Sending with Twilio SendGrid is Fun");
+        $email->addTo($to_mail, $to_name);
+        $email->addContent(
+            "text/html", $content
+        );
+        $sendgrid = new \SendGrid($key);
+        try {
+            $response = $sendgrid->send($email);
+        } catch (Exception $e) {
+        echo 'Caught exception: '.  $e->getMessage(). "\n";
+    }
+  }  
 ?>
-
