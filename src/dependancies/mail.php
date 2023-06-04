@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . '/../../vendor/autoload.php';
+    require_once 'vendor/autoload.php';
     require_once __DIR__ . "/templates/email_verification.php";
 
     use SendGrid\Mail\Mail;
