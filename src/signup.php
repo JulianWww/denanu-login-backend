@@ -23,7 +23,8 @@
 
     
     sendMail($name, $mail, $senderName, $senderMail, $apiKey,
-      genMailAutentication($serviceName, $serviceUrl, $registerUrl, $unsubscribeUrl)
+      genMailAutentication($serviceName, $serviceUrl, $registerUrl, $unsubscribeUrl),
+      "E-Mail Authentication"
     );
 
     print("{\"status\": \"success\"}");

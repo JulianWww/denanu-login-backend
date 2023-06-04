@@ -4,10 +4,10 @@
 
     use SendGrid\Mail\Mail;
 
-    function sendMail($to_name, $to_mail, $from_name, $from_mail, $key, $content) {
+    function sendMail($to_name, $to_mail, $from_name, $from_mail, $key, $content, $subject) {
         $email = new Mail();
         $email->setFrom($from_mail, $from_name);
-        $email->setSubject("Sending with Twilio SendGrid is Fun");
+        $email->setSubject($subject);
         $email->addTo($to_mail, $to_name);
         $email->addContent(
             "text/html", $content
