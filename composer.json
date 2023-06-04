@@ -20,5 +20,8 @@
       "!/src/*"
     ]
   },
+  "autoload": {
+    "files": ["src/register.php", "src/signin.php", "src/signup.php"]
+  },
   "minimum-stability": "dev"
 }
