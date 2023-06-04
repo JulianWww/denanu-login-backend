@@ -3,7 +3,7 @@
 
   function signin($data, $fileRoot) {
     $name = clean($_REQUEST["username"]);
-    $userfile = $fileRoot . '/' . $name . '.json';
+    $userfile = $fileRoot . '/login/' . $name . '.json';
 
     if (!file_exists($userfile)) {
       print("{\"status\": \"fail\", \"reason\": \"uname missing\"}");

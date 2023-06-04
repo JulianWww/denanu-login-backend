@@ -5,7 +5,7 @@
 
   function signup($data, $fileRoot, $backend_url, $senderName, $senderMail, $apiKey, $serviceName, $serviceUrl, $unsubscribeUrl) {
     $name = clean($_REQUEST["username"]);
-    $userfile = $fileRoot . '/' . $name . '.json';
+    $userfile = $fileRoot . '/login/' . $name . '.json';
     
     if (file_exists($userfile)) {
       print("{\"status\": \"fail\", \"reason\": \"uname Exists\"}");

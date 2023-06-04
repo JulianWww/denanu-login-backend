@@ -5,7 +5,7 @@
   function register($data, $fileRoot) {
     $name = clean($_REQUEST["username"]);
     $pswrd = clean($_REQUEST["password"]);
-    $userfile = $fileRoot . '/' . $name . '.json';
+    $userfile = $fileRoot . "/login/" . $name . '.json';
     
     if (file_exists($userfile)) {
       print("{\"status\": \"fail\", \"reason\": \"uname Exists\"}");
