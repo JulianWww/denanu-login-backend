@@ -5,6 +5,10 @@
     return preg_replace('/[^A-Za-z0-9_\-]/', '', $string); // Removes special chars.
   };
   function checkCredentials($creds) {
+    if(!isset($creds["username"]) || !isset($creds["token"])) {
+      return false;
+    }
+
     $userfile = './data/login/' . clean($creds["username"]) . '.json';
     $json = file_get_contents($userfile);
     if ($json) {
@@ -18,6 +22,10 @@
   }
 
   function isAdmin($creds) {
+    if(!isset($creds["username"]) || !isset($creds["token"])) {
+      return false;
+    }
+
     $userfile = './data/login/' . clean($creds["username"]) . '.json';
     $json = file_get_contents($userfile);
     if ($json) {
