@@ -2,7 +2,7 @@
   include_once "dependancies/headers.php";
 
   function signin($data, $fileRoot) {
-    if(!isset($creds["username"]) || !isset($creds["password"])) {
+    if(!isset($data["username"]) || !isset($data["password"])) {
       http_response_code(403);
       print("{\"status\": \"fail\", \"reason\": \"missing data\"}");
       return false;
