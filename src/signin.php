@@ -13,7 +13,7 @@
 
     if (!file_exists($userfile)) {
       http_response_code(403);
-      print("{\"status\": \"fail\", \"reason\": \"uname missing\"}");
+      print("{\"status\": \"fail\", \"reason\": \"uname unknown\"}");
       die();
     }
 
