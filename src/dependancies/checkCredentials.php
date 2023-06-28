@@ -10,6 +10,10 @@
     }
 
     $userfile = './data/login/' . clean($creds["username"]) . '.json';
+    if (!file_exists($userfile)) {
+    	return false;
+    }
+    
     $json = file_get_contents($userfile);
     if ($json) {
       $json = json_decode($json, true);
